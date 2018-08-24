@@ -1,0 +1,11 @@
+---
+
+#########################
+# NGINX install         #
+#########################
+
+- hosts: webserver
+  sudo: true
+  tags: elasticsearch
+  roles:
+    - ansible-role-nginx
