@@ -7,11 +7,11 @@ pipeline {
 		git poll: true, url: 'git@github.com:danibasconCHAKRAY/vagrant-esxi-nodes.git'
                }
         }
-#        stage('Checkout-git kubespray'){
-#               steps{
-#                git poll: true, url: 'git@github.com:danibasconCHAKRAY/kubespray.git'
-#               }
-#        }
+//        stage('Checkout-git kubespray'){
+//               steps{
+//                git poll: true, url: 'git@github.com:danibasconCHAKRAY/kubespray.git'
+//               }
+//        }
         stage('CreateVirtualEnv') {
             steps {
 		sh '''
