@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   (1..2).each do |i|
-    config.vm.define "k8s-node#{i}" do |node|
+    config.vm.define "prueba-k8s-node#{i}" do |node|
 
 
   # set to false, if you do NOT want to check the correct VirtualBox Guest Additions version when booting this box
