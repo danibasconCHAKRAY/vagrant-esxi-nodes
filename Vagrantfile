@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  (1..5).each do |i|
+  (1..2).each do |i|
     config.vm.define "k8s-node#{i}" do |node|
 
 
@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     node.vm.box = "bento/ubuntu-16.04"
-    node.vm.hostname = "k8s-worker#{i}"
+    node.vm.hostname = "prueba-k8s-worker#{i}"
     node.vm.synced_folder('.', '/Vagrantfiles', type: 'rsync')
     node.vm.network :forwarded_port, guest: 32280, host: 38080
     node.vm.network :forwarded_port, guest: 32443, host: 38443
@@ -25,8 +25,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     node.vm.provider "vmware_fusion" do |v, override|
        ## the puppetlabs ubuntu 14-04 image might work on vmware, not tested? 
       v.box = "bento/ubuntu-16.04"
-      v.vmx["numvcpus"] = "2"
-      v.vmx["memsize"] = "4096"
+      v.vmx["numvcpus"] = "1"
+      v.vmx["memsize"] = "1024"
     end
     node.vm.provider :vmware_esxi do |esxi, overrider|
       #
