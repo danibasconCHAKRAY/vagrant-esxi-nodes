@@ -10,8 +10,7 @@ pipeline {
         stage('Checkout-git kubespray'){
                steps{
 		sh '''
-                cd kubespray
-		git pull git@github.com:danibasconCHAKRAY/kubespray.git
+                cd kubespray && git clone git@github.com:danibasconCHAKRAY/kubespray.git
                '''
 		}
         }
