@@ -9,16 +9,15 @@ pipeline {
         }
         stage('CreateVirtualEnv') {
             steps {
-				sh '''
-					bash -c "virtualenv entorno_virtual && source entorno_virtual/bin/activate"
-				'''
-
+		sh '''
+			bash -c "virtualenv entorno_virtual && source entorno_virtual/bin/activate"
+		'''
             }
         }
         stage('InstallRequirements') {
             steps {
             	sh '''
-            		bash -c "source ${WORKSPACE}/entorno_virtual/bin/activate && ${WORKSPACE}/entorno_virtual/bin/python ${WORKSPACE}/entorno_virtual/bin/pip install -r /kubespray/requirements.txt"
+            		bash -c "source ${WORKSPACE}/entorno_virtual/bin/activate && ${WORKSPACE}/entorno_virtual/bin/python ${WORKSPACE}/entorno_virtual/bin/pip install -r kubespray/requirements.txt"
                 '''
             }
         }   
