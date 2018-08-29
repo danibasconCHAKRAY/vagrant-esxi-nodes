@@ -7,11 +7,11 @@ pipeline {
 		git poll: true, url: 'git@github.com:danibasconCHAKRAY/vagrant-esxi-nodes.git'
                }
         }
-        stage('Checkout-git kubespray'){
-               steps{
-                git poll: true, url: 'git@github.com:danibasconCHAKRAY/kubespray.git'
-               }
-        }
+#        stage('Checkout-git kubespray'){
+#               steps{
+#                git poll: true, url: 'git@github.com:danibasconCHAKRAY/kubespray.git'
+#               }
+#        }
         stage('CreateVirtualEnv') {
             steps {
 		sh '''
@@ -29,7 +29,7 @@ pipeline {
         stage('RunApp') {
             steps {
             	sh '''
-            		bash -c "source entorno_virtual/bin/activate ; ${WORKSPACE}/entorno_virtual/bin/python ansible.py > host"
+            		bash -c "source entorno_virtual/bin/activate && ${WORKSPACE}/entorno_virtual/bin/python  ${WORKSPACE}/ansible.py > host"
                 '''
             }
         } 
