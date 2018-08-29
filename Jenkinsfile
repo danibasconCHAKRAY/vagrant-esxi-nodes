@@ -29,7 +29,7 @@ pipeline {
         stage('RunApp') {
             steps {
             	sh '''
-            		bash -c "source entorno_virtual/bin/activate && ${WORKSPACE}/entorno_virtual/bin/python  ${WORKSPACE}/ansible.py > host"
+            		bash -c "source entorno_virtual/bin/activate && ${WORKSPACE}/entorno_virtual/bin/python  ${WORKSPACE}/vagrant2ansible.py > host"
                 '''
             }
         } 
