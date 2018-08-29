@@ -2,9 +2,14 @@
 pipeline {
  agent any
  stages {
-        stage('Checkout-git'){
+        stage('Checkout-git vagrant-esxi-nodes'){
                steps{
 		git poll: true, url: 'git@github.com:danibasconCHAKRAY/vagrant-esxi-nodes.git'
+               }
+        }
+        stage('Checkout-git kubespray'){
+               steps{
+                git poll: true, url: 'git@github.com:danibasconCHAKRAY/kubespray.git'
                }
         }
         stage('CreateVirtualEnv') {
@@ -17,7 +22,7 @@ pipeline {
         stage('InstallRequirements') {
             steps {
             	sh '''
-            		bash -c "source ${WORKSPACE}/entorno_virtual/bin/activate && ${WORKSPACE}/entorno_virtual/bin/python ${WORKSPACE}/entorno_virtual/bin/pip install -r  /var/lib/jenkins/workspace/vagrant-esxi-nodes/requirements.txt"
+            		bash -c "source ${WORKSPACE}/entorno_virtual/bin/activate && ${WORKSPACE}/entorno_virtual/bin/python ${WORKSPACE}/entorno_virtual/bin/pip install -r  /var/lib/jenkins/workspace/kubespray/requirements.txt"
                 '''
             }
         }   
