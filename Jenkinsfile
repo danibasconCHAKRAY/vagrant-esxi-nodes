@@ -17,7 +17,7 @@ pipeline {
         stage('InstallRequirements') {
             steps {
             	sh '''
-            		bash -c "source ${WORKSPACE}/entorno_virtual/bin/activate && pwd && ${WORKSPACE}/entorno_virtual/bin/python ${WORKSPACE}/entorno_virtual/bin/pip install -r requirements.txt"
+            		bash -c "source ${WORKSPACE}/entorno_virtual/bin/activate && ${WORKSPACE}/entorno_virtual/bin/python ${WORKSPACE}/entorno_virtual/bin/pip install -r  /var/lib/jenkins/workspace/vagrant-esxi-nodes/requirements.txt"
                 '''
             }
         }   
