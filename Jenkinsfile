@@ -40,9 +40,9 @@ pipeline {
             steps {
                 sh '''
 //                        for var in {1..2}  ; do	
-//				sed -i "s|#nodo$var| $(head -n $var host) |" ${WORKSPACE}/kubespray/host.ini
+//				sed -i "s|#nodo$var| $(head -n $var host) |" ${WORKSPACE}/kubespray/hosts.ini
 //			done 
-			sed -i "ss|#nodo1| $(head -n 1 host) |" ${WORKSPACE}/kubespray/hosts.ini
+			sed -i "s|#nodo1| $(head -n 1 ${WORKSPACE}/host) |" ${WORKSPACE}/kubespray/hosts.ini
                 '''
             }
         }
