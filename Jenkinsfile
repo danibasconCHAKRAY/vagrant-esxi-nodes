@@ -10,7 +10,8 @@ pipeline {
         stage('Checkout-git kubespray'){
                steps{
 		sh '''
-                rm -rf kubespray & git clone git@github.com:danibasconCHAKRAY/kubespray.git
+			rm -rf kubespray
+			git clone git@github.com:danibasconCHAKRAY/kubespray.git
                '''
 		}
         }
@@ -31,7 +32,7 @@ pipeline {
         stage('RunApp') {
             steps {
             	sh '''
-            		cp ${WORKSPACE}/../k8s/host ${WORKSPACE}"
+            		cp ${WORKSPACE}/../k8s/host ${WORKSPACE}
                 '''
             }
         } 
