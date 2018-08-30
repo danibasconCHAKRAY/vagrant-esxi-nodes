@@ -31,7 +31,7 @@ pipeline {
         stage('RunApp') {
             steps {
             	sh '''
-            		cp ../k8s/host ${WORKSPACE}/host"
+            		cp ${WORKSPACE}/../k8s/host ${WORKSPACE}"
                 '''
             }
         } 
