@@ -32,7 +32,7 @@ pipeline {
         stage('Copyng config') {
             steps {
             	sh '''
-            		cp ${WORKSPACE}/../k8s/host ${WORKSPACE}/kubespray/hosts.ini
+            		cp ${WORKSPACE}/../k8s/host ${WORKSPACE}/hosts_vagrant
                 '''
             }
         }
@@ -42,7 +42,7 @@ pipeline {
 //                        for var in {1..2}  ; do	
 //				sed -i "s|#nodo$var| $(head -n $var host) |" ${WORKSPACE}/kubespray/hosts.ini
 //			done 
-			sed -i "s|#nodo1| $(head -n 1 ${WORKSPACE}/host) |" ${WORKSPACE}/kubespray/hosts.ini
+			sed -i "s|#nodo1| $(head -n 1 ${WORKSPACE}/hosts_vagrant) |" ${WORKSPACE}/hosts.ini
                 '''
             }
         }
