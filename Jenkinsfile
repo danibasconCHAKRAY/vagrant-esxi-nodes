@@ -29,13 +29,23 @@ pipeline {
                 '''
             }
         }   
-        stage('RunApp') {
+        stage('Copyng config') {
             steps {
             	sh '''
-            		cp ${WORKSPACE}/../k8s/host ${WORKSPACE}
+            		cp ${WORKSPACE}/../k8s/host ${WORKSPACE}/kubespray/hosts.ini
                 '''
             }
-        } 
+        }
+        stage('Configuring  host') {
+            steps {
+                sh '''
+//                        for var in {1..2}  ; do	
+//				sed -i "s|#nodo$var| $(head -n $var host) |" ${WORKSPACE}/kubespray/host.ini
+//			done 
+			sed -i "ss|#nodo1| $(head -n 1 host) |" ${WORKSPACE}/kubespray/hosts.ini
+                '''
+            }
+        }
   }
 }
 
