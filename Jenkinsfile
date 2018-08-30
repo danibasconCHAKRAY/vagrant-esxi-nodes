@@ -40,6 +40,11 @@ pipeline {
             steps {
                 sh '''
 			sed -i "s|#nodo1| $(head -n 1 ${WORKSPACE}/hosts_vagrant) |" ${WORKSPACE}/hosts.ini
+                        sed -i "s|#nodo2| $(head -n 2 ${WORKSPACE}/hosts_vagrant) |" ${WORKSPACE}/hosts.ini
+//                        sed -i "s|#nodo3| $(head -n 3 ${WORKSPACE}/hosts_vagrant) |" ${WORKSPACE}/hosts.ini
+//                        sed -i "s|#nodo4| $(head -n 4 ${WORKSPACE}/hosts_vagrant) |" ${WORKSPACE}/hosts.ini
+//                        sed -i "s|#nodo5| $(head -n 5 ${WORKSPACE}/hosts_vagrant) |" ${WORKSPACE}/hosts.ini
+
                 '''
             }
         }
