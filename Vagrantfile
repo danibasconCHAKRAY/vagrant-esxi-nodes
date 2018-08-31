@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  (1..2).each do |i|
+  (1..3).each do |i|
     config.vm.define "prueba-k8s-node#{i}" do |node|
 
 
