@@ -32,7 +32,7 @@ pipeline {
         stage('Copyng config') {
             steps {
             	sh '''
-            		cp ${WORKSPACE}/../k8s/hosts.ini ${WORKSPACE}/hosts_vagrant
+            		cp ${WORKSPACE}/../k8s/hosts ${WORKSPACE}/hosts_vagrant
                 '''
             }
         }
